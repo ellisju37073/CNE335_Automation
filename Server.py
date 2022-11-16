@@ -23,6 +23,7 @@ class Server:
         # Create the ssh client
         ssh_client = paramiko.SSHClient()
         ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        #https://stackoverflow.com/questions/10825687/python-paramiko-getting-error-object-has-no-attribute-get-fingerprint
         k = paramiko.RSAKey.from_private_key_file(self.key_file)
         # Make the connection to the server
         ssh_client.connect(hostname=self.server_ip, username=self.username, pkey=k)
